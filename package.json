@@ -1,0 +1,16 @@
+{
+  "name": "thesis",
+  "version": "1.0.0",
+  "description": "This is the program on Machine learning force fields for the Data Provided by The Chemistry department of the University of Pecs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Ricardo Beltran Castro",
+  "license": "ISC",
+  "dependencies": {
+    "data-forge": "^1.9.2",
+    "data-forge-fs": "^0.0.9",
+    "lodash": "^4.17.21"
+  }
+}
