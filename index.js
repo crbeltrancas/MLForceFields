@@ -7,12 +7,21 @@ const loadCSV = require('./load-csv');
 const dataForge = require('data-forge');
 
 /*
+ * This is the variable to load the data from the csv files
+ */
+const atomType = loadCSV('data/AtomTypeDefinitions.csv');
+const angleBending = loadCSV('data/AngleBendingParameters.csv');
+const bondStretching = loadCSV('data/BondStretchingParameters.csv');
+const torsion = loadCSV('data/TorsionalParameters.csv');
+const vanderWall = loadCSV('data/VanderWaalsParameters.csv');
+
+/*
     * This the classs that will select the information we need for the calculation
     * of the force fields with different molecules, here we will search and select that data 
     * that has realtion within all the parameters needed for the calculation.
     */
-
 class Molecule {
+    //#region constructor
     constructor(atomReference) {
         this.atomReference = atomReference;
         this.molecule ={
@@ -23,6 +32,9 @@ class Molecule {
             vdwValue : [],
         };
     }
+    //#endregion
+
+    //#region Molecule Selection function.
     /*
         * This is where we loop through the atom type data and select molecule
         *  to be added for calculation and converted into a variable and transformed into an object
@@ -39,12 +51,15 @@ class Molecule {
                 .dropSeries("5")             
                 .dropSeries("6")            
                 .dropSeries("7")             
-                .toArray();                 
+                .toArray();                
             }
         }
 
         return this;
     }
+    //#endregion
+
+    //#region Bond Selection function.
     /**
         * This is where we loop through the bond Stretching data and select the values
         *  to be added for calculation and converted into a variable and transformed into an object
@@ -69,11 +84,14 @@ class Molecule {
         }
         return this;
     }
+    //#endregion
 
+    //#region  Angle Bending Selection function.
     /**
         * This is where we loop through the Angle Bending data and select the values
         *  to be added for calculation and converted into a variable and transformed into an object
         */
+        
     angleSelection() {
         // loop the outer array
         for (let i = 0; i < angleBending.length; i++) {
@@ -93,7 +111,9 @@ class Molecule {
         }
         return this;
     }
+    //#endregion
 
+    //#region Torsion Selection function.
     /**
          * This is where we loop through the Torsional data and select the values
          *  to be added for calculation and converted into a variable and transformed into an object
@@ -117,6 +137,9 @@ class Molecule {
         }
         return this;
     }
+    //#endregion
+
+    //#region Vanderwall Selection function.
     /**
         * This is where we loop through the Wanderwall values data and select the values
         *  to be added for calculation and converted into a variable and transformed into an object
@@ -139,24 +162,19 @@ class Molecule {
         }
         return this;
     }
+    //#endregion
 
-    SelectedValues(){
+    //#region Selected Values function.
+    selectedValues(){
         this.moleculeSelection();
         this.angleSelection();
         this.bondSelection();
         this.torsionSelection();
         this.vanderWallSelection();
     }
+    //#endregion
 }
 
-/*
- * This is the variable to load the data from the csv files
- */
-let atomType = loadCSV('data/AtomTypeDefinitions.csv');
-let angleBending = loadCSV('data/AngleBendingParameters.csv');
-let bondStretching = loadCSV('data/BondStretchingParameters.csv');
-let torsion = loadCSV('data/TorsionalParameters.csv');
-let vanderWall = loadCSV('data/VanderWaalsParameters.csv');
 
 /*
  * This is where we create an instance of the molecules we want to use for calculation
@@ -178,17 +196,17 @@ reference3.atomReference = atomType[220];
  * This is where we call for the values of the molecules in the parameteres we want to use for calculation
  */
 
-reference1.SelectedValues();
-reference2.SelectedValues();
-reference3.SelectedValues();
+reference1.selectedValues();
+reference2.selectedValues();
+reference3.selectedValues();
 
 /*
  * This is where we log for the values for the parameters parameteres we want to use for calculation
  */
 
 console.log(reference1.molecule);
-console.log(reference2.molecule);
-console.log(reference3.molecule);
+// console.log(reference2.molecule);
+// console.log(reference3.molecule);
 
 /**
  * This is where we transform our data for processing 
