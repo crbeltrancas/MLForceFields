@@ -45,13 +45,13 @@ class Molecule {
             if (atomType[i] === this.atomReference) {
                 this.molecule.atomValue.push(atomType[i]);
                 // return this;
-                this.molecule.atomValue = new dataForge.DataFrame(this.molecule.atomValue)
-                .dropSeries("Columns")            
-                .dropSeries("0")             
-                .dropSeries("5")             
-                .dropSeries("6")            
-                .dropSeries("7")             
-                .toArray();                
+                // this.molecule.atomValue = new dataForge.DataFrame(this.molecule.atomValue)
+                // .dropSeries("Columns")            
+                // .dropSeries("0")             
+                // .dropSeries("5")             
+                // .dropSeries("6")            
+                // .dropSeries("7")             
+                // .toArray();                
             }
         }
 

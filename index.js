@@ -36,21 +36,22 @@ let reference3 = molReference(atomType[220]);
 // console.log(reference3.molecule);
 
 
-let referenceAtomValues = _.union(reference1.molecule.atomValue,reference2.molecule.atomValue,reference3.molecule.atomValue);
-console.log(referenceAtomValues);
+let referenceAtomValues = _.union([reference1.atomReference],[reference2.atomReference],[reference3.atomReference]);
+console.table(referenceAtomValues);
 
 
 let referenceBondValues = _.union(reference1.molecule.bondValue,reference2.molecule.bondValue,reference3.molecule.bondValue);
-console.log(referenceBondValues);
+console.table(referenceBondValues);
 
 let referenceAngleValues = _.union(reference1.molecule.angleValue,reference2.molecule.angleValue,reference3.molecule.angleValue);
-console.log(referenceAngleValues);
+console.table(referenceAngleValues);
 
 let referenceTorsionValues = _.union(reference1.molecule.torsionValue,reference2.molecule.torsionValue,reference3.molecule.torsionValue);
-console.log(referenceTorsionValues);
+console.table(referenceTorsionValues);
 
 let referenceVDWValues = _.union(reference1.molecule.vdwValue,reference2.molecule.vdwValue,reference3.molecule.vdwValue);
-console.log(referenceVDWValues);
+console.table(referenceVDWValues);
+
 
 
 
