@@ -6,7 +6,6 @@ const _ = require('lodash');
 const loadCSV = require('./load-csv');
 const dataForge = require('data-forge'); require('data-forge-fs');
 let molReference = require('./FilterData');
-let Molecule = require('./FilterData');
 
 /*
  * This is the variable to load the data from the csv files
