@@ -1,6 +1,5 @@
 const fs = require('fs');
 const _ = require('lodash');
-const dataForge = require('data-forge');
 
 /*
 * This function will load the information need it 
