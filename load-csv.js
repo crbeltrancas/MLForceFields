@@ -16,7 +16,7 @@ function loadCSV(filename){
   data = data
   .split('\n')
   .map(row => row.split(',') 
-  .map(row => row.split('  ')
+  .map(row => row.split(' ')
   .filter(element => {return element != null && element != ''})
   ));
 
@@ -58,5 +58,5 @@ function loadCSV(filename){
 
 module.exports = loadCSV;
 
-// loadCSV('data/AtomTypeDefinitions.csv');
+// loadCSV('data/TorsionalParameters.csv');
 

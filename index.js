@@ -12,7 +12,6 @@ let molReference = require('./FilterData');
  */
 const atomType = loadCSV('data/AtomTypeDefinitions.csv');
 
-
 /*
  * This is where we create an instance of the molecules we want to use for calculation
  * Please enter how many molecules are you going to use for computation. 
@@ -25,7 +24,6 @@ let reference1 = molReference(atomType[218]);
 let reference2 = molReference(atomType[219]);
 let reference3 = molReference(atomType[220]);
 
-
 /*
  * This is where we log for the values for the parameters parameteres we want to use for calculation
  */
@@ -34,10 +32,8 @@ let reference3 = molReference(atomType[220]);
 // console.log(reference2.molecule);
 // console.log(reference3.molecule);
 
-
 let referenceAtomValues = _.union([reference1.atomReference],[reference2.atomReference],[reference3.atomReference]);
-console.table(referenceAtomValues);
-
+console.log(referenceAtomValues);
 
 let referenceBondValues = _.union(reference1.molecule.bondValue,reference2.molecule.bondValue,reference3.molecule.bondValue);
 console.table(referenceBondValues);
@@ -50,6 +46,12 @@ console.table(referenceTorsionValues);
 
 let referenceVDWValues = _.union(reference1.molecule.vdwValue,reference2.molecule.vdwValue,reference3.molecule.vdwValue);
 console.table(referenceVDWValues);
+
+
+
+
+
+
 
 
 
