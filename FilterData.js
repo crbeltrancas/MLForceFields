@@ -1,10 +1,5 @@
-//jshint esversion:6
-// require('@tensorflow/tfjs-node');
-// const tf = require('@tensorflow/tfjs');
-const fs = require('fs');
 const _ = require('lodash');
 const loadCSV = require('./load-csv');
-const dataForge = require('data-forge');require('data-forge-fs');
 
 /*
  * This is the variable to load the data from the csv files
@@ -43,15 +38,7 @@ class Molecule {
         // loop the outer array
         for (let i = 0; i < atomType.length; i++) {
             if (atomType[i] === this.atomReference) {
-                this.molecule.atomValue.push(atomType[i]);
-                // return this;
-                // this.molecule.atomValue = new dataForge.DataFrame(this.molecule.atomValue)
-                // .dropSeries("Columns")            
-                // .dropSeries("0")             
-                // .dropSeries("5")             
-                // .dropSeries("6")            
-                // .dropSeries("7")             
-                // .toArray();                
+                this.molecule.atomValue.push(atomType[i]);            
             }
         }
 
@@ -73,12 +60,7 @@ class Molecule {
             for (let j = 0; j < innerArrayLength; j++) {
                 if (bondStretching[i][j] === this.atomReference[2]) {
                     this.molecule.bondValue.push(bondStretching[i]);
-                    this.molecule.bondValue = _.union(this.molecule.bondValue);
-                    this.molecule.bondValue = new dataForge.DataFrame(this.molecule.bondValue)
-                    .dropSeries("Columns")          
-                    .dropSeries("0")            
-                    .toArray();                
-
+                    this.molecule.bondValue = _.union(this.molecule.bondValue);             
                 }
             }
         }
@@ -101,11 +83,7 @@ class Molecule {
             for (let j = 0; j < innerArrayLength; j++) {
                 if (angleBending[i][j] === this.atomReference[2]) {
                     this.molecule.angleValue.push(angleBending[i]);
-                    this.molecule.angleValue = _.union(this.molecule.angleValue);
-                    // this.molecule.angleValue = new dataForge.DataFrame(this.molecule.angleValue)
-                    // .dropSeries("Columns")        
-                    // .dropSeries("0")             
-                    // .toArray();                 
+                    this.molecule.angleValue = _.union(this.molecule.angleValue);                 
                 }
             }
         }
@@ -127,11 +105,7 @@ class Molecule {
             for (let j = 0; j < innerArrayLength; j++) {
                 if ((torsion[i][1] && torsion[i][2] && torsion[i][3] && torsion[i][4]) === this.atomReference[2] ) {
                     this.molecule.torsionValue.push(torsion[i]);
-                    this.molecule.torsionValue = _.union(this.molecule.torsionValue);
-                    // this.molecule.torsionValue = new dataForge.DataFrame(this.molecule.torsionValue)
-                    // .dropSeries("Columns")             
-                    // .dropSeries("0")               
-                    // .toArray();                  
+                    this.molecule.torsionValue = _.union(this.molecule.torsionValue);                
                 }
             }
         }
@@ -152,11 +126,7 @@ class Molecule {
             // loop the inner array
             for (let j = 0; j < innerArrayLength; j++) {
                 if (vanderWall[i][j] === this.atomReference[1]) {
-                    this.molecule.vdwValue.push(vanderWall[i]);
-                    // this.molecule.vdwValue = new dataForge.DataFrame(this.molecule.vdwValue)
-                    // .dropSeries("Columns")              
-                    // .dropSeries("0")              
-                    // .toArray();                  
+                    this.molecule.vdwValue.push(vanderWall[i]);                
                 }
             }
         }
@@ -184,7 +154,6 @@ function molReference (referenceMol){
 
 // module.exports = Molecule;
 module.exports = molReference;
-
 
 
 

@@ -9,8 +9,6 @@
   "author": "Carlos Ricardo Beltran Castro",
   "license": "ISC",
   "dependencies": {
-    "data-forge": "^1.9.2",
-    "data-forge-fs": "^0.0.9",
     "lodash": "^4.17.21"
   }
 }

@@ -6,4 +6,9 @@ University of Pecs
 Computer Science Program
 
 Please install Nodejs
-Libraries to install: Lodash, data-forge, data-forge-fs
+npm the following dependencies.
+"dependencies": {
+    "@tensorflow/tfjs": "^3.14.0",
+    "@tensorflow/tfjs-node": "^3.14.0",
+    "lodash": "^4.17.21"
+  }
