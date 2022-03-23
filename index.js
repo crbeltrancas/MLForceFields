@@ -1,4 +1,3 @@
-const fs = require('fs');
 const _ = require('lodash');
 const loadCSV = require('./load-csv');
 let molReference = require('./FilterData');
@@ -79,11 +78,11 @@ for (let i = 0; i < referenceAtomValues.length ; i++) {
     }          
 }
 
-let BondValues = [];
+let bondValues = [];
 for (let i = 0; i < referenceAtomValues.length ; i++) {
     for (let j = 0; j< bondIndex.length;  j++){
         if(bondIndex[j][1] == referenceAtomValues[i][1]){
-            BondValues.push(bondIndex[j]); 
+            bondValues.push(bondIndex[j]); 
         }
     }          
 }
@@ -187,7 +186,7 @@ reference2 = null;
 reference3 = null;
 
 let atomValues = referenceAtomValues;
-let VDWValues = referenceVDWValues;
+let vdwValues = referenceVDWValues;
 referenceAtomValues = null;
 referenceBondValues = null;
 referenceAngleValues =null;
@@ -201,13 +200,13 @@ referenceVDWValues = null;
 console.log('Atom Values');
 console.table(atomValues);
 console.log('Bond Values' );
-console.table(BondValues);
+console.table(bondValues);
 console.log('Angle Values');
 console.table(angleValues);
 console.log('Torsion Values');
 console.table(torsionValues);
 console.log('VanderWall Values');
-console.table(VDWValues);
+console.table(vdwValues);
 
 // --------------------------------------------------------------------------
 
